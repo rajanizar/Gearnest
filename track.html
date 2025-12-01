@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gear Nest | Track Shipment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center;">
+  <img src="images/gearnest-logo.png" alt="Gear Nest Logo" style="height: 40px; margin-right: 10px;">
+  <span style="
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #00A3FF;
+  ">
+    Gear Nest
+  </span>
+</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product.html">Parts</a></li>
+      <li><a href="supplier_dashboard.html">Suppliers</a></li>
+      <li><a href="signup.html">Login</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="faq's.html">FAQs</a></li>
+      <li class="dropdown">
+  <a href="#" class="dropbtn">Dashboard &#x25BC;</a>
+  <ul class="dropdown-content">
+    <li><a href="customer_dashboard.html">Customer</a></li>
+    <li><a href="supplier_dashboard.html">Supplier</a></li>
+    <li><a href="admin_dashboard.html">Admin</a></li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</header>
+
+<section class="track-section">
+  <div class="track-container">
+    <h2>📦 Track Your Shipment</h2>
+
+    <form class="track-form">
+      <label for="orderId">Enter Your Order ID:</label>
+      <input type="text" id="orderId" placeholder="e.g. 1234567890" required />
+      <button type="submit">Track</button>
+    </form>
+
+    <div class="track-result" id="trackResult">
+      <!-- This part can be dynamically filled using JavaScript or backend -->
+      <p><strong>Status:</strong> In Transit</p>
+      <p><strong>Estimated Delivery:</strong> 20 July 2025</p>
+      <p><strong>Location:</strong> Peshawar Distribution Hub</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Gear Nest. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

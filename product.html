@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gear Nest | Browse Products</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .filters input,
+    .filters select {
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 150px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center;">
+    <img src="images/gearnest-logo.png" alt="Gear Nest Logo" style="height: 40px; margin-right: 10px;">
+    <span style="font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; color: #00A3FF;">Gear Nest</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product.html" class="active">Parts</a></li>
+      <li><a href="supplier_dashboard.html">Suppliers</a></li>
+      <li><a href="signup.html">Login</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="faq's.html">FAQs</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Dashboard &#x25BC;</a>
+        <ul class="dropdown-content">
+          <li><a href="customer_dashboard.html">Customer</a></li>
+          <li><a href="supplier_dashboard.html">Supplier</a></li>
+          <li><a href="admin_dashboard.html">Admin</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="product-list-section">
+  <div class="product-list-container">
+    <h2>Browse Products</h2>
+
+    <!-- Search and Filters -->
+    <div class="filters">
+      <input type="text" id="part-name" placeholder="Search by part name...">
+      <select id="brand-select">
+        <option value="">Select Brand</option>
+      </select>
+      <select>
+        <option>All Models</option>
+        <option>Civic</option>
+        <option>Corolla</option>
+        <option>Alto</option>
+      </select>
+      <select>
+        <option>All Years</option>
+        <option>2023</option>
+        <option>2022</option>
+        <option>2021</option>
+        <!-- etc. -->
+      </select>
+    </div>
+
+    
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/Toyota_corolla_Brakepads.png" alt="Brake Pad">
+        <h3>Brake Pad - Toyota Corolla</h3>
+        <p>PKR 3,500</p>
+        <span class="stock">In Stock</span>
+        <a href="Product_detail_page.html?id=corolla-pad">View Details</a>
+      </div>
+
+      <div class="product-card">
+        <img src="images/OilFilter_Honda.png" alt="Oil Filter">
+        <h3>Oil Filter - Honda Civic</h3>
+        <p>PKR 4,750</p>
+        <span class="stock">In Stock</span>
+        <a href="Product_detail_page.html?id=civic-oil">View Details</a>
+      </div>
+
+      
+      <div class="product-card">
+        <img src="images/LTD_EDI_NISMO_OMORI_RIMS.png" alt="Nismo Rims">
+        <h3>Limited Edition Omori Rims</h3>
+        <p>PKR 88,500</p>
+        <span class="stock">In Stock</span>
+        <a href="Product_detail_page.html?id=Nismo-Rims">View Details</a>
+      </div>
+
+       <div class="product-card" data-brand="Suzuki">
+          <img src="images/Suzuki_Alto_SparksPlugs.png" alt="Spark Plug">
+          <h3>Suzuki Alto Spark Plug</h3>
+          <p>PKR 1500</p>
+          <span class="stock">In Stock</span>
+          <a href="Product_detail_page.html?id=Suzuki-Sparks-pLugs">View Details</a>
+        </div>
+
+      <!-- More product-cards can be added similarly -->
+   
+   
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Gear Nest. All rights reserved.</p>
+</footer>
+
+<script>
+  // Smart Part Search with Brand Suggestions
+  const partsDB = {
+    "rims": ["BBS", "Shogun", "Enkei", "OZ Racing"],
+    "brake pad": ["Brembo", "Bosch", "TRW"],
+    "oil filter": ["Toyota", "Honda", "Bosch"],
+    "headlight": ["Koito", "Hella", "Philips"],
+    "tyre": ["Michelin", "Dunlop", "Pirelli", "Bridgestone"],
+    "battery": ["AGS", "Osaka", "Exide"],
+    "radiator": ["Denso", "Nissens", "Koyo"]
+  };
+
+  const partInput = document.getElementById('part-name');
+  const brandSelect = document.getElementById('brand-select');
+
+  const suggestionBox = document.createElement('ul');
+  suggestionBox.style.border = '1px solid #ccc';
+  suggestionBox.style.position = 'absolute';
+  suggestionBox.style.backgroundColor = '#fff';
+  suggestionBox.style.zIndex = '999';
+  suggestionBox.style.listStyle = 'none';
+  suggestionBox.style.padding = '5px';
+  suggestionBox.style.marginTop = '5px';
+  suggestionBox.style.width = partInput.offsetWidth + 'px';
+  suggestionBox.style.display = 'none';
+  suggestionBox.style.maxHeight = '150px';
+  suggestionBox.style.overflowY = 'auto';
+  partInput.parentNode.appendChild(suggestionBox);
+
+  partInput.addEventListener('input', function () {
+    const inputVal = this.value.toLowerCase();
+    suggestionBox.innerHTML = '';
+    suggestionBox.style.display = 'none';
+
+    const rect = this.getBoundingClientRect();
+    suggestionBox.style.left = rect.left + window.scrollX + 'px';
+    suggestionBox.style.top = rect.bottom + window.scrollY + 'px';
+    suggestionBox.style.width = rect.width + 'px';
+
+    if (inputVal.length === 0) return;
+
+    const matchedParts = Object.keys(partsDB).filter(part => part.includes(inputVal));
+
+    if (matchedParts.length > 0) {
+      suggestionBox.style.display = 'block';
+      matchedParts.forEach(part => {
+        const li = document.createElement('li');
+        li.textContent = part;
+        li.style.cursor = 'pointer';
+        li.style.padding = '5px';
+        li.style.borderBottom = '1px solid #eee';
+        li.addEventListener('mouseenter', () => li.style.backgroundColor = '#f0f0f0');
+        li.addEventListener('mouseleave', () => li.style.backgroundColor = '#fff');
+        li.addEventListener('click', () => {
+          partInput.value = part;
+          updateBrands(part);
+          suggestionBox.style.display = 'none';
+        });
+        suggestionBox.appendChild(li);
+      });
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!suggestionBox.contains(e.target) && e.target !== partInput) {
+      suggestionBox.style.display = 'none';
+    }
+  });
+
+  function updateBrands(part) {
+    const brands = partsDB[part.toLowerCase()] || [];
+    brandSelect.innerHTML = '<option value="">Select Brand</option>';
+    brands.forEach(brand => {
+      const option = document.createElement('option');
+      option.value = brand;
+      option.textContent = brand;
+      brandSelect.appendChild(option);
+    });
+  }
+
+</script>
+
+
+
+
+</body>
+</html>

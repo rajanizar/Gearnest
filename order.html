@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gear Nest | Order History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div style="display: flex; align-items: center;">
+  <img src="images/gearnest-logo.png" alt="Gear Nest Logo" style="height: 40px; margin-right: 10px;">
+  <span style="
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #00A3FF;
+  ">
+    Gear Nest
+  </span>
+</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product.html">Parts</a></li>
+      <li><a href="supplier_dashboard.html">Suppliers</a></li>
+      <li><a href="signup.html">Login</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="faq's.html">FAQs</a></li>
+      <li class="dropdown">
+  <a href="#" class="dropbtn">Dashboard &#x25BC;</a>
+  <ul class="dropdown-content">
+    <li><a href="customer_dashboard.html">Customer</a></li>
+    <li><a href="supplier_dashboard.html">Supplier</a></li>
+    <li><a href="admin_dashboard.html">Admin</a></li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</header>
+
+<section class="orders-section">
+  <div class="orders-container">
+    <h2>📦 Order History</h2>
+
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Items</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Invoice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#2025-001</td>
+          <td>July 18, 2025</td>
+          <td>3 Items</td>
+          <td>Rs. 5,600</td>
+          <td>Delivered</td>
+          <td><a href="#">Download</a></td>
+        </tr>
+        <tr>
+          <td>#2025-002</td>
+          <td>July 14, 2025</td>
+          <td>2 Items</td>
+          <td>Rs. 3,200</td>
+          <td>In Transit</td>
+          <td><a href="#">Download</a></td>
+        </tr>
+        <tr>
+          <td>#2025-003</td>
+          <td>July 10, 2025</td>
+          <td>1 Item</td>
+          <td>Rs. 1,200</td>
+          <td>Cancelled</td>
+          <td><a href="#">N/A</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Gear Nest. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

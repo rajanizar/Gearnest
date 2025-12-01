@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gear Nest | Cart & Checkout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center;">
+  <img src="images/gearnest-logo.png" alt="Gear Nest Logo" style="height: 40px; margin-right: 10px;">
+  <span style="
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #259ae8;
+  ">
+    Gear Nest
+  </span>
+</div>
+  <nav>
+    <ul>
+       <li><a href="index.html">Home</a></li>
+      <li><a href="product.html">Parts</a></li>
+      <li><a href="supplier_dashboard.html">Suppliers</a></li>
+      <li><a href="signup.html">Login</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="faq's.html">FAQs</a></li>
+      <li class="dropdown">
+  <a href="#" class="dropbtn">Dashboard &#x25BC;</a>
+  <ul class="dropdown-content">
+    <li><a href="customer_dashboard.html">Customer</a></li>
+    <li><a href="supplier_dashboard.html">Supplier</a></li>
+    <li><a href="admin_dashboard.html">Admin</a></li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</header>
+
+<section class="cart-section">
+  <div class="cart-container">
+    <h2>Your Shopping Cart</h2>
+    <table class="cart-table">
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td>Brake Pad - Toyota Corolla</td>
+        <td>PKR 3,500</td>
+        <td><input type="number" value="1" min="1"></td>
+        <td>PKR 3,500</td>
+      </tr>
+    </table>
+
+    <div class="checkout-section">
+      <h3>Billing & Shipping Details</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="Shipping Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+
+        <select required>
+          <option value="">Select Payment Method</option>
+          <option value="jazzcash">JazzCash</option>
+          <option value="easypaisa">Easypaisa</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Gear Nest. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

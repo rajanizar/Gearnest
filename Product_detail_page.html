@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gear Nest | Product Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <script>
+    // Product database
+    const products = {
+      "corolla-pad": {
+        name: "Brake Pad - Toyota Corolla",
+        price: "PKR 3,500",
+        specs: "Compatible Model: Toyota Corolla 2016–2022<br>Category: Brakes<br>Condition: New",
+        description: "High-quality, durable brake pad for Toyota Corolla. Easy to install and provides smooth braking performance.",
+        image: "images/Toyota_corolla_Brakepads.png",
+        reviews: [
+          "⭐️⭐️⭐️⭐️⭐️ – Great product, delivered on time!",
+          "⭐️⭐️⭐️⭐️ – Easy to fit, quality looks good."
+        ]
+      },
+      "civic-oil": {
+        name: "Oil Filter - Honda Civic",
+        price: "PKR 4,750",
+        specs: "Compatible Model: Honda Civic 2015–2023<br>Category: Oil Filter<br>Condition: New",
+        description: "Reliable oil filter designed to ensure optimal engine performance for Honda Civic models.",
+        image: "images/OilFilter_Honda.png",
+        reviews: [
+          "⭐️⭐️⭐️⭐️⭐️ – Excellent quality and price!",
+          "⭐️⭐️⭐️⭐️ – Delivered on time and fit perfectly."
+        ]
+      },
+
+       "Nismo-Rims": {
+        name: "Limited Edition Nismo Omori Rims",
+        price: "PKR 88,500",
+        specs: "Compatible Model: Honda Civic ,Toyota Corolla , Toyota mark X 2000–2025<br>Category: Nismo Rims<br>Condition: New",
+        description: "Extreme Light Weight Rims in staggered Setup for Every Kind of Sedan .",
+        image: "images/LTD_EDI_NISMO_OMORI_RIMS.png",
+        reviews: [
+          "⭐️⭐️⭐️⭐️⭐️ – Excellent quality and price!",
+          "⭐️⭐️⭐️⭐️ – Delivered on time and fit perfectly."
+        ]
+      },
+       "Suzuki-Sparks-pLugs": {
+        name: "Premium Quality Spark Plugs for Suzuki Alto and Mehran (660cc cars)",
+        price: "PKR 1500",
+        specs: "Compatible Model: Suzuki Mehran ,Alto and FX: Nismo Rims<br>Condition: New",
+        description: "One of The best and reliable spark plugs for 660 cc cars  .",
+        image: "images/Suzuki_Alto_SparksPlugs.png",
+        reviews: [
+          "⭐️⭐️⭐️⭐️⭐️ – Excellent quality and price!",
+          "⭐️⭐️⭐️⭐️ – Delivered on time and fit perfectly."
+        ]
+      },
+
+
+    };
+
+    function loadProduct() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+      const product = products[id];
+
+      if (!product) {
+        document.querySelector(".product-detail-container").innerHTML =
+          "<p>Product not found.</p>";
+        return;
+      }
+
+      document.getElementById("product-name").textContent = product.name;
+      document.getElementById("product-price").textContent = product.price;
+      document.getElementById("product-specs").innerHTML = product.specs;
+      document.getElementById("product-description").textContent = product.description;
+      document.getElementById("product-image").src = product.image;
+
+      const reviewsContainer = document.getElementById("product-reviews");
+      reviewsContainer.innerHTML = "";
+      product.reviews.forEach(review => {
+        const p = document.createElement("p");
+        p.textContent = review;
+        reviewsContainer.appendChild(p);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", loadProduct);
+  </script>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center;">
+    <img src="images/gearnest-logo.png" alt="Gear Nest Logo" style="height: 40px; margin-right: 10px;">
+    <span style="font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; color: #00A3FF;">Gear Nest</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="product.html">Parts</a></li>
+      <li><a href="supplier_dashboard.html">Suppliers</a></li>
+      <li><a href="signup.html">Login</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="faq's.html">FAQs</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Dashboard &#x25BC;</a>
+        <ul class="dropdown-content">
+          <li><a href="customer_dashboard.html">Customer</a></li>
+          <li><a href="supplier_dashboard.html">Supplier</a></li>
+          <li><a href="admin_dashboard.html">Admin</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="product-detail-section">
+  <div class="product-detail-container">
+    <div class="image-section">
+      <img id="product-image" src="" alt="Product Image">
+    </div>
+    <div class="info-section">
+      <h2 id="product-name">Loading...</h2>
+      <p class="price" id="product-price"></p>
+      <p class="specs" id="product-specs"></p>
+      <p class="description" id="product-description"></p>
+      <div class="actions">
+        <input type="number" value="1" min="1">
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-section">
+  <div class="reviews-container">
+    <h3>Customer Reviews</h3>
+    <div id="product-reviews"></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Gear Nest. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
